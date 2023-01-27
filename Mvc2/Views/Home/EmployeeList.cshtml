@@ -1,0 +1,47 @@
+﻿@model Mvc2.ViewModels.Home.EmployeeList
+
+<h3>All Employee</h3>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>City</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var em in Model.Employees)
+        {
+            <tr>
+                <td>@em.Id</td>
+                <td>@em.Name</td>
+                <td>@em.City</td>
+                <td>
+                    @Html.ActionLink("Select","EmployeeList",new{selectedId=em.Id})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Selected Employee</h3>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var em in Model.SelectedEmployees)
+        {
+            <tr>
+                <td>@em.Id</td>
+                <td>@em.Name</td>
+                <td>@em.City</td>
+            </tr>
+        }
+    </tbody>
+</table>
